@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.TeacherMapper">
+    <!--
+    <resultMap type="Admin" id="admin">
+        <id column="adminId" property="adminId"/>
+        <result column="password" property="password"/>
+    </resultMap>
+    -->
+    <select id="findById" parameterType="java.lang.Integer" resultType="cn.edu.zjut.po.Teacher">
+	select * from teacher where teaID=#{id}
+	</select>
+</mapper>
+

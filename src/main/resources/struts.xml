@@ -5,9 +5,109 @@
 
 <struts>
     <package name="strutsBean" extends="struts-default" >
-        <action name="register" class="cn.edu.zjut.action.UserAction" method="register">
-            <result name="registerSuccess">/registerSuccess.jsp</result>
-            <result name="registerFail">/regFail.jsp</result>
+        <!--***************************卢益铭部分开始****************************-->
+        <!--添加学生-->
+        <action name="studentAdd" class="cn.edu.zjut.action.StudentManageAction" method="studentAdd">
+            <result name="studentAddSuccess">/manageStudentMessage.jsp</result>
+            <result name="studentAddFail">/error.jsp</result>
         </action>
+        <!--查找学生-->
+        <action name="stuSearch" class="cn.edu.zjut.action.StudentManageAction" method="stuSearch">
+            <result name="stuSearchSuccess">/manageStudentMessage.jsp</result>
+            <result name="stuSearchFail">/error.jsp</result>
+        </action>
+        <!--显示学生信息-->
+        <action name="stuMessage" class="cn.edu.zjut.action.StudentMessageAction" method="getStuMess">
+            <result name="getStuMessSuccess">/studentMessage.jsp</result>
+            <result name="getStuMessFail">/error.jsp</result>
+        </action>
+        <!--更新学生信息-->
+        <action name="stuMessageUpdate" class="cn.edu.zjut.action.StudentMessageAction" method="updateStuMess">
+            <result name="updateStuMessSuccess">/studentMessage.jsp</result>
+            <result name="updateStuMessFail">/error.jsp</result>
+        </action>
+        <!--删除学生信息-->
+        <action name="stuMessageDelete" class="cn.edu.zjut.action.StudentMessageAction" method="deleteStuMess">
+            <result name="deleteStuMessSuccess">/manageStudentMessage.jsp</result>
+            <result name="deleteStuMessFail">/error.jsp</result>
+        </action>
+        <!--***************************卢益铭部分结束****************************-->
+
+        <!--***************************金炜炜部分开始****************************-->
+        <action name="Teacherlogin" class="cn.edu.zjut.action.TeacherAction" method="login">
+            <result name="success">/loginSuccess.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="Adminlogin" class="cn.edu.zjut.action.AdminAction" method="login">
+            <result name="success">/loginSuccess.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <action name="AdminRegister" class="cn.edu.zjut.action.AdminAction" method="register">
+            <result name="success">/loginSuccess.jsp</result>
+            <result name="fail">/error.jsp</result>
+        </action>
+        <!--***************************金炜炜部分结束****************************-->
+
+        <!--****************************黄丹部分开始*****************************-->
+        <action name="GetallDaily" class="cn.edu.zjut.action.Dailyaction" method="GetallDaily">
+            <result name="getallDailysuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyfail">/Fail.jsp</result>
+        </action>
+        <action name="GetsingleDaily" class="cn.edu.zjut.action.Dailyaction" method="GetsingleDaily">
+            <result name="getsingleDailysuccess">/displaysingleDaily.jsp</result>
+            <result name="getsingleDailyfail">/Fail.jsp</result>
+        </action>
+        <action name="GetAllDailyByArrp" class="cn.edu.zjut.action.Dailyaction" method="GetAllDailyByArrp">
+            <result name="getAllDailyByArrpsuccess">/displayallDaily.jsp</result>
+            <result name="getAllDailyByArrpfail">/Fail.jsp</result>
+        </action>
+        <action name="GetAllDailyByCal" class="cn.edu.zjut.action.Dailyaction" method="GetAllDailyByCal">
+            <result name="getAllDailyByCalsuccess">/displayallDaily.jsp</result>
+            <result name="getAllDailyByCalfail">/Fail.jsp</result>
+        </action>
+        <action name="GetallDailyByDName" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByDName">
+            <result name="getallDailyByDNamesuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyByDNamefail">/Fail.jsp</result>
+        </action>
+        <action name="GetallDailyByDID" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByDID">
+            <result name="getallDailyByDIDsuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyByDIDfail">/Fail.jsp</result>
+        </action>
+        <action name="GetallDailyByVal" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByVal">
+            <result name="getallDailyByValsuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyByValfail">/Fail.jsp</result>
+        </action>
+        <action name="GetallDailyByfuzzyArrp" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByfuzzyArrp">
+            <result name="getallDailyByfuzzyArrpsuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyByfuzzyArrpfail">/Fail.jsp</result>
+        </action>
+        <action name="GetallDailyByfuzzyCal" class="cn.edu.zjut.action.Dailyaction" method="GetallDailyByfuzzyCal">
+            <result name="getallDailyByfuzzyCalsuccess">/displayallDaily.jsp</result>
+            <result name="getallDailyByfuzzyCalfail">/Fail.jsp</result>
+        </action>
+        <!--****************************黄丹部分结束*****************************-->
+
+        <!--***************************李璐瑶部分开始****************************-->
+        <action name="lookAll" class="com.action.ResultAction" method="lookAll">
+            <result name="success-lookAll">allResults.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="ByName" class="com.action.ResultAction" method="Byname">
+            <result name="success-Byname">allResults.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="ByTime" class="com.action.ResultAction" method="Bytime">
+            <result name="success-Bytime">allResults.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="signDetails" class="com.action.ResultDetailsAction" method="SignDetails">
+            <result name="success-Details">resultDetails.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <action name="changeResult" class="com.action.ResultDetailsAction" method="changeDetails">
+            <result name="success-Details">resultDetails.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </action>
+        <!--***************************李璐瑶部分结束****************************-->
     </package>
 </struts>
