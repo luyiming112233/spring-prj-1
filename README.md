@@ -1,1 +1,1 @@
-# spring-prj-1
+# SSM DEMO 2.0
