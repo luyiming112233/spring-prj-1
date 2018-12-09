@@ -8,6 +8,7 @@
         <id property="stuID" column="student_id" javaType="java.lang.Integer"></id>
         <result property="name" column="student_name" javaType="java.lang.String"></result>
         <result property="password" column="student_password" javaType="java.lang.String"></result>
+        <result property="sex" column="student_sex" javaType="java.lang.String"></result>
         <result property="clazz" column="student_classname" javaType="java.lang.String"></result>
         <result property="depart" column="student_departname" javaType="java.lang.String"></result>
         <result property="email" column="student_email" javaType="java.lang.String"></result>
@@ -17,13 +18,13 @@
     <insert id="insertStudent" parameterType="cn.edu.zjut.po.Student" useGeneratedKeys="true"
             keyProperty="stuID">
         INSERT INTO
-        student (student_id,student_name,student_password,student_classname,student_departname,student_email,student_img)
-        VALUES (#{stuID},#{name},#{password},#{clazz},#{depart},#{email},#{img})
+        student (student_id,student_name,student_sex,student_password,student_classname,student_departname,student_email,student_img)
+        VALUES (#{stuID},#{name},#{sex},#{password},#{clazz},#{depart},#{email},#{img})
     </insert>
     
     <update id="updateStudent" parameterType="cn.edu.zjut.po.Student">
         UPDATE student SET
-        student_name=#{name},student_password=#{password},student_classname=#{clazz},student_departname=#{depart},student_email=#{email},student_img=#{img}
+        student_name=#{name},student_sex=#{sex},student_password=#{password},student_classname=#{clazz},student_departname=#{depart},student_email=#{email},student_img=#{img}
         where student_id=#{stuID}
     </update>
 

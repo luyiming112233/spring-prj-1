@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring-prj1:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/spring_prj1_war_exploded</output-path>
+  <artifact type="exploded-war" name="facecheack-web-2:war exploded">
+    <output-path>$PROJECT_DIR$/target/lym</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -40,7 +40,11 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.2" />
           <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
           <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/lym/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="facecheack-web-2/web/Web" />
     </root>

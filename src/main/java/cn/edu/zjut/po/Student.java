@@ -3,19 +3,21 @@ package cn.edu.zjut.po;
 public class Student {
     private Integer stuID;
     private String name;
+    private Integer sex;
     private String password;
     private String clazz;
     private String depart;
     private String email;
     private String img;
 
-    public Student(){
+    public Student() {
         this.password = "123456";//设定初始密码
     }
 
-    public Student(Integer stuID, String name, String password, String clazz, String depart, String email, String img) {
+    public Student(Integer stuID, String name, Integer sex, String password, String clazz, String depart, String email, String img) {
         this.stuID = stuID;
         this.name = name;
+        this.sex = sex;
         this.password = password;
         this.clazz = clazz;
         this.depart = depart;
@@ -37,6 +39,14 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getSex(){
+        return sex;
+    }
+
+    public void setSex(Integer sex){
+        this.sex = sex;
     }
 
     public String getPassword() {
