@@ -7,12 +7,12 @@
     <package name="strutsBean" extends="struts-default" >
         <!--***************************卢益铭部分开始****************************-->
         <!--添加学生-->
-        <action name="studentAdd" class="cn.edu.zjut.action.StudentManageAction" method="studentAdd">
+        <action name="studentAdd" class="cn.edu.zjut.action.StudentAction" method="studentAdd">
             <result name="studentAddSuccess">/manageStudentMessage.jsp</result>
             <result name="studentAddFail">/error.jsp</result>
         </action>
         <!--查找学生-->
-        <action name="stuSearch" class="cn.edu.zjut.action.StudentManageAction" method="stuSearch">
+        <action name="stuSearch" class="cn.edu.zjut.action.StudentAction" method="stuSearch">
             <result name="stuSearchSuccess">/manageStudentMessage.jsp</result>
             <result name="stuSearchFail">/error.jsp</result>
         </action>
@@ -30,6 +30,36 @@
         <action name="stuMessageDelete" class="cn.edu.zjut.action.StudentMessageAction" method="deleteStuMess">
             <result name="deleteStuMessSuccess">/manageStudentMessage.jsp</result>
             <result name="deleteStuMessFail">/error.jsp</result>
+        </action>
+        <!--添加教师信息-->
+        <action name="teacherAdd" class="cn.edu.zjut.action.TeacherAction" method="teacherAdd">
+            <result name="teacherAddSuccess">/manageTeacherMessage.jsp</result>
+            <result name="teacherAddFail">/error.jsp</result>
+        </action>
+        <!--获得所有教师信息-->
+        <action name="getAllTeachers" class="cn.edu.zjut.action.TeacherAction" method="getAllTeachers">
+            <result name="getAllTeachersSuccess">/manageTeacherMessage.jsp</result>
+            <result name="getAllTeachersFail">/error.jsp</result>
+        </action>
+        <!--查询教师信息-->
+        <action name="teacherSearch" class="cn.edu.zjut.action.TeacherAction" method="teacherSearch">
+            <result name="searchTeacherSuccess">/manageTeacherMessage.jsp</result>
+            <result name="searchTeacherFail">/error.jsp</result>
+        </action>
+        <!--显示教师信息-->
+        <action name="teaMessage" class="cn.edu.zjut.action.TeacherMessageAction" method="getTeaMess">
+            <result name="getTeaMessSuccess">/teacherMessage.jsp</result>
+            <result name="getTeaMessFail">/error.jsp</result>
+        </action>
+        <!--修改教师信息-->
+        <action name="teaMessageUpdate" class="cn.edu.zjut.action.TeacherMessageAction" method="updateTeaMess">
+            <result name="updateTeaMessSuccess">/teacherMessage.jsp</result>
+            <result name="updateTeaMessFail">/error.jsp</result>
+        </action>
+        <!--删除教师信息-->
+        <action name="teaMessageDelete" class="cn.edu.zjut.action.TeacherMessageAction" method="deleteTeaMess">
+            <result name="deleteTeaMessSuccess">/teacherMessage.jsp</result>
+            <result name="deleteTeaMessFail">/error.jsp</result>
         </action>
         <!--***************************卢益铭部分结束****************************-->
 

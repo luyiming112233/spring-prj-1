@@ -4,22 +4,21 @@ import cn.edu.zjut.dao.StudentMapper;
 import cn.edu.zjut.po.Student;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class StudentService implements IStudentService {
     private Map<String, Object> request;
 
+    @Autowired
     StudentMapper studentMapper = null;
 
-    public void setStudentMapper(StudentMapper studentMapper) {
-        this.studentMapper = studentMapper;
-    }
-
-    /*增加一个学生信息*/
-    public boolean addStudent(Student student) {
+    @Override
+    public boolean insertStudent(Student student) {
         try {
             studentMapper.insertStudent(student);
         } catch (Exception e) {
@@ -29,7 +28,7 @@ public class StudentService implements IStudentService {
         return true;
     }
 
-    /*修改一个学生的信息*/
+    @Override
     public boolean updateStudent(Student student) {
         try {
             studentMapper.updateStudent(student);
@@ -40,7 +39,7 @@ public class StudentService implements IStudentService {
         return true;
     }
 
-    /*删除一个学生的信息*/
+    @Override
     public boolean deleteStudent(int stuID) {
         try {
             studentMapper.deleteStudent(stuID);
@@ -51,10 +50,10 @@ public class StudentService implements IStudentService {
         return true;
     }
 
-    /*通过学号查找一个学生信息*/
+    @Override
     public Student serachStudentByID(int stuID) {
         try {
-            Student student = studentMapper.selectStudentById(stuID);
+            Student student = studentMapper.getStudentById(stuID);
             return student;
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,10 +61,10 @@ public class StudentService implements IStudentService {
         }
     }
 
-    /*查找所有学生的信息*/
-    public List<Student> searchAllStudent() {
+    @Override
+    public List<Student> listAllStudent() {
         try {
-            List<Student> studentList = studentMapper.selectAllStudent();
+            List<Student> studentList = studentMapper.listAllStudent();
             return studentList;
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,12 +72,11 @@ public class StudentService implements IStudentService {
         }
     }
 
-    /**
-     * 查找一个班级学生的信息
-     */
+    @Override
     public List<Student> searchStudentByClass(String className) {
+        System.out.println(className);
         try {
-            List<Student> studentList = studentMapper.selectStudentByClass(className);
+            List<Student> studentList = studentMapper.listStudentByClass(className);
             return studentList;
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,12 +84,10 @@ public class StudentService implements IStudentService {
         }
     }
 
-    /**
-     * 查找一个专业学生的信息
-     */
+    @Override
     public List<Student> searchStudentByDepart(String departName) {
         try {
-            List<Student> studentList = studentMapper.selectStudentByDepart(departName);
+            List<Student> studentList = studentMapper.listStudentByDepart(departName);
             return studentList;
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,10 +95,7 @@ public class StudentService implements IStudentService {
         }
     }
 
-    /**
-     * 根据输入的学生信息进行查找
-     * 通过传入的student哪个属性不为空来判断根据什么查询
-     */
+    @Override
     public boolean searchStudentByStudent(Student student) {
         ActionContext ctx = ActionContext.getContext();
         request = (Map) ctx.get("request");
@@ -110,15 +103,16 @@ public class StudentService implements IStudentService {
         List<Student> studentList = null;
         try {
             if (student.getStuID() != null) {
-                System.out.println("id:" + student.getStuID());
-                Student newStudent = studentMapper.selectStudentById(student.getStuID());
-                if (newStudent != null)
+                System.out.println("id:" + student.getStuID());//后期删除
+                Student newStudent = studentMapper.getStudentById(student.getStuID());//后期删除
+                if (newStudent != null) {
+                    studentList = new ArrayList<Student>();
                     studentList.add(newStudent);
-                studentList = new ArrayList<Student>();
-            } else if (student.getClassname() != null) {
-                studentList = studentMapper.selectStudentByClass(student.getClassname());
-            } else if (student.getDepartname() != null) {
-                studentList = studentMapper.selectStudentByDepart(student.getDepartname());
+                }
+            } else if (student.getClazz() != null) {
+                studentList = studentMapper.listStudentByClass(student.getClazz());
+            } else if (student.getDepart() != null) {
+                studentList = studentMapper.listStudentByDepart(student.getDepart());
             }
         } catch (Exception e) {
             e.printStackTrace();

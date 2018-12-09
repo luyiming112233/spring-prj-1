@@ -3,51 +3,50 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.StudentMapper">
-    <!--
-    <resultMap id="studentMap" type="cn.edu.zjut.po.Student">
-        <id property="stuID" column="stuid" javaType="java.lang.Integer"></id>
-        <result property="name" column="name" javaType="java.lang.String"></result>
-        <result property="classname" column="classname" javaType="java.lang.String"></result>
-        <result property="departname" column="departname" javaType="java.lang.String"></result>
-        <result property="email" column="email" javaType="java.lang.String"></result>
-        <result property="img" column="img" javaType="java.lang.String"></result>
-    </resultMap>
-    -->
 
+    <resultMap id="studentMap" type="cn.edu.zjut.po.Student">
+        <id property="stuID" column="student_id" javaType="java.lang.Integer"></id>
+        <result property="name" column="student_name" javaType="java.lang.String"></result>
+        <result property="password" column="student_password" javaType="java.lang.String"></result>
+        <result property="clazz" column="student_classname" javaType="java.lang.String"></result>
+        <result property="depart" column="student_departname" javaType="java.lang.String"></result>
+        <result property="email" column="student_email" javaType="java.lang.String"></result>
+        <result property="img" column="student_img" javaType="java.lang.String"></result>
+    </resultMap>
 
     <insert id="insertStudent" parameterType="cn.edu.zjut.po.Student" useGeneratedKeys="true"
             keyProperty="stuID">
         INSERT INTO
-        student (stuid,name,password,classname,departname,email,img)
-        VALUES (#{stuID},#{name},#{password},#{classname},#{departname},#{email},#{img})
+        student (student_id,student_name,student_password,student_classname,student_departname,student_email,student_img)
+        VALUES (#{stuID},#{name},#{password},#{clazz},#{depart},#{email},#{img})
     </insert>
     
     <update id="updateStudent" parameterType="cn.edu.zjut.po.Student">
-        UPDATE student set
-        name=#{name},password=#{password},classname=#{classname},departname=#{departname},email=#{email},img=#{img}
-        where stuid=#{stuID}
+        UPDATE student SET
+        student_name=#{name},student_password=#{password},student_classname=#{clazz},student_departname=#{depart},student_email=#{email},student_img=#{img}
+        where student_id=#{stuID}
     </update>
 
     <delete id="deleteStudent" parameterType="int">
         DELETE FROM student
-        WHERE stuid=#{id}
+        WHERE student_id=#{id}
     </delete>
     
-    <select id="selectStudentById" parameterType="int" resultType="cn.edu.zjut.po.Student">
+    <select id="getStudentById" parameterType="int" resultMap="studentMap">
         SELECT * FROM student
-        WHERE stuid=#{id}
+        WHERE student_id=#{id}
     </select>
 
-    <select id="selectAllStudent" resultType="cn.edu.zjut.po.Student">
+    <select id="listAllStudent" resultMap="studentMap">
         SELECT * FROM student
     </select>
 
-    <select id="selectStudentByClass" parameterType="String" resultType="cn.edu.zjut.po.Student">
-        SELECT * FROM student WHERE classname = #{className}
+    <select id="listStudentByClass" parameterType="String" resultMap="studentMap">
+        SELECT * FROM student WHERE student_classname = #{className}
     </select>
 
-    <select id="selectStudentByDepart" resultType="cn.edu.zjut.po.Student">
-        SELECT * FROM student WHERE departname = #{departName}
+    <select id="listStudentByDepart" resultMap="studentMap">
+        SELECT * FROM student WHERE student_departname = #{departName}
     </select>
 
 </mapper>

@@ -17,8 +17,8 @@
 <s:form action="studentAdd" method="post">
     <s:textfield name="student.stuID" key="学号"/>
     <s:textfield name="student.name" key="姓名"/>
-    <s:textfield name="student.classname" key="班级"/>
-    <s:textfield name="student.departname" key="专业"/>
+    <s:textfield name="student.clazz" key="班级"/>
+    <s:textfield name="student.depart" key="专业"/>
     <s:textfield name="student.email" key="邮箱"/>
     <s:submit value="添加"/>
     <s:reset value="清除"/>
@@ -31,13 +31,13 @@
 </s:form>
 <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 <s:form action="stuSearch" method="post">
-    <s:textfield name="student.classname" key="班级"/>
+    <s:textfield name="student.clazz" key="班级"/>
     <s:submit value="按班级查询"/>
     <s:reset value="清除"/>
 </s:form>
 <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#987cb9 SIZE=3>
 <s:form action="stuSearch" method="post">
-    <s:textfield name="student.departname" key="专业"/>
+    <s:textfield name="student.depart" key="专业"/>
     <s:submit value="按专业查询"/>
     <s:reset value="清除"/>
 </s:form>
@@ -53,8 +53,8 @@
         <tr>
             <td><a href="stuMessage?stuID=<s:property value="stuID"/>"><s:property value="stuID"/></a> </td>
             <td><s:property value="name"/></td>
-            <td><s:property value="classname"/></td>
-            <td><s:property value="departname"/></td>
+            <td><s:property value="clazz"/></td>
+            <td><s:property value="depart"/></td>
         </tr>
     </s:iterator>
 </table>

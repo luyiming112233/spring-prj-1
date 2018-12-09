@@ -4,21 +4,21 @@ public class Student {
     private Integer stuID;
     private String name;
     private String password;
-    private String classname;
-    private String departname;
+    private String clazz;
+    private String depart;
     private String email;
     private String img;
 
     public Student(){
-        this.password = "123456";
+        this.password = "123456";//设定初始密码
     }
 
-    public Student(Integer stuID, String name, String password, String classname, String departname, String email, String img) {
+    public Student(Integer stuID, String name, String password, String clazz, String depart, String email, String img) {
         this.stuID = stuID;
         this.name = name;
         this.password = password;
-        this.classname = classname;
-        this.departname = departname;
+        this.clazz = clazz;
+        this.depart = depart;
         this.email = email;
         this.img = img;
     }
@@ -47,20 +47,20 @@ public class Student {
         this.password = password;
     }
 
-    public String getClassname() {
-        return classname;
+    public String getClazz() {
+        return clazz;
     }
 
-    public void setClassname(String classname) {
-        this.classname = classname;
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
     }
 
-    public String getDepartname() {
-        return departname;
+    public String getDepart() {
+        return depart;
     }
 
-    public void setDepartname(String departname) {
-        this.departname = departname;
+    public void setDepart(String depart) {
+        this.depart = depart;
     }
 
     public String getEmail() {

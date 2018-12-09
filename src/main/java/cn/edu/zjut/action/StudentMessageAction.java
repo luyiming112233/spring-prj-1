@@ -3,7 +3,11 @@ package cn.edu.zjut.action;
 import cn.edu.zjut.po.Student;
 import cn.edu.zjut.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
+@Scope("prototype")
+@Controller
 public class StudentMessageAction {
     private String stuID;
     private Student student;

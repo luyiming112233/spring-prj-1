@@ -1,28 +1,28 @@
 package cn.edu.zjut.po;
 
 public class Teacher {
-    private int tedID;
+    private Integer teaID;
     private String name;
     private String password;
     private Integer sex;
-    private Integer phone;
+    private String phone;
 
     public Teacher(){ }
 
-    public Teacher(int tedID, String name, String password, Integer sex, Integer phone) {
-        this.tedID = tedID;
+    public Teacher(Integer teaID, String name, String password, Integer sex, String phone) {
+        this.teaID = teaID;
         this.name = name;
         this.password = password;
         this.sex = sex;
         this.phone = phone;
     }
 
-    public int getTedID() {
-        return tedID;
+    public Integer getTeaID() {
+        return teaID;
     }
 
-    public void setTedID(int tedID) {
-        this.tedID = tedID;
+    public void setTeaID(Integer teaID) {
+        this.teaID = teaID;
     }
 
     public String getName() {
@@ -49,11 +49,11 @@ public class Teacher {
         this.sex = sex;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

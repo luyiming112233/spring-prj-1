@@ -47,25 +47,16 @@
     <!--7 aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
 
-    <!--Service 配置 -->
-    <bean id="studentService" class="cn.edu.zjut.service.StudentService">
-        <property name="studentMapper" ref="studentMapper"/>
-    </bean>
-
-    <!--Struts2 action配置-->
-    <bean id="studentMessageAction" class="cn.edu.zjut.action.StudentMessageAction" scope="prototype"/>
-    <bean id="studentManageAction" class="cn.edu.zjut.action.StudentManageAction" scope="prototype"/>
-
     <!--***************************卢益铭部分结束****************************-->
+
     <!--***************************金炜炜部分开始****************************-->
-    <!--
-        卢益铭:mapper配置部分已经删除，因为上面有自动扫描的配置
-    -->
 
     <!--Service 配置 -->
+    <!--
     <bean id="teacherService"  class="cn.edu.zjut.service.TeacherService">
         <property name="teacherMapper" ref="teacherMapper"/>
     </bean>
+    -->
 
     <bean id="adminService"  class="cn.edu.zjut.service.AdminService">
         <property name="adminMapper" ref="adminMapper"/>

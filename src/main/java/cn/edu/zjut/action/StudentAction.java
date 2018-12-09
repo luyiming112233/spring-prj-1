@@ -4,12 +4,17 @@ import cn.edu.zjut.po.Student;
 import cn.edu.zjut.service.IStudentService;
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import java.util.Map;
 
-public class StudentManageAction implements RequestAware {
+@Scope("prototype")
+@Controller
+public class StudentAction implements RequestAware {
     private Map request;
     private Student student;
+
     @Autowired
     private IStudentService studentService;
 
@@ -27,7 +32,7 @@ public class StudentManageAction implements RequestAware {
 
     public String studentAdd(){
         if(student!=null) {
-            studentService.addStudent(student);
+            studentService.insertStudent(student);
             request.put("tip",student.getName()+"信息添加成功！");
             return "studentAddSuccess";
         }else{

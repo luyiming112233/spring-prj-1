@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-prj1" />
+        <module name="facecheack-web-2" />
       </profile>
     </annotationProcessing>
   </component>

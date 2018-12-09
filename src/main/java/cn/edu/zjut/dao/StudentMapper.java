@@ -23,20 +23,20 @@ public interface StudentMapper {
     /**
      * 根据id查询学生信息
      */
-    public Student selectStudentById(int id) throws Exception;
+    public Student getStudentById(int id) throws Exception;
 
     /**
      * 查询所有的学生信息
      */
-    public List<Student> selectAllStudent() throws Exception;
+    public List<Student> listAllStudent() throws Exception;
 
     /**
      * 查询一个班级的学生信息
      */
-    public List<Student> selectStudentByClass(String className) throws Exception;
+    public List<Student> listStudentByClass(String className) throws Exception;
 
     /**
      * 查询一个专业的学生信息
      */
-    public List<Student> selectStudentByDepart(String departName) throws Exception;
+    public List<Student> listStudentByDepart(String departName) throws Exception;
 }
